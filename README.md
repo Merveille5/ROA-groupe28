@@ -1,17 +1,73 @@
-# ROA-groupe28
-recherche arborescente monte carlo 
+# ♟️ Jeu du Morpion avec Intelligence Artificielle (MCTS)
 
-La Recherche arborescente Monte-Carlo (Monte Carlo Tree Search, MCTS) est une
-méthode d’exploration de grands espaces de décision basée sur la simulation aléatoire.
+## 🧠 Description
 
-Elle construit progressivement un arbre de recherche en simulant des parties ou des
-séquences d’actions et en utilisant les résultats pour estimer la qualité des décisions.
+Ce projet implémente une intelligence artificielle pour jouer au **jeu du Morpion (Tic-Tac-Toe)** en utilisant l’algorithme de **Monte Carlo Tree Search (MCTS)**.
 
-MCTS combine quatre phases principales : sélection, expansion, simulation (ou playout),
-et mise à jour des valeurs. Cette approche est particulièrement efficace pour les jeux
-à information parfaite (comme le Go ou les échecs), les problèmes de planification et
-certains problèmes d’optimisation stochastique.
+L'utilisateur joue contre une IA capable de prendre des décisions optimisées grâce à des simulations répétées et une stratégie probabiliste.
 
-Par exemple, dans un jeu de morpion, MCTS simule de nombreuses parties aléatoires
-depuis l’état courant pour estimer quelle action offre les meilleures chances de victoire,
-et construit progressivement un arbre qui guide le choix du coup optim
+---
+
+## 🎯 Objectif
+
+Permettre à une IA de choisir le meilleur coup en maximisant ses chances de victoire à partir de simulations aléatoires.
+
+---
+
+## ⚙️ Algorithme utilisé
+
+### 🔹 Monte Carlo Tree Search (MCTS)
+
+L’algorithme suit 4 étapes principales :
+
+1. **Sélection**  
+   Sélection du nœud le plus prometteur via la formule UCT.
+
+2. **Expansion**  
+   Ajout d’un nouveau nœud (coup possible non exploré).
+
+3. **Simulation (Rollout)**  
+   Simulation d’une partie complète (avec heuristique).
+
+4. **Rétropropagation**  
+   Mise à jour des statistiques (victoires / visites).
+
+---
+
+## 📐 Formule UCT
+
+\[
+UCT = \frac{wins}{visits} + c \cdot \sqrt{\frac{\ln(N)}{visits}}
+\]
+
+où :
+- `wins` : nombre de victoires  
+- `visits` : nombre de visites  
+- `N` : nombre total de simulations  
+- `c` : constante d’exploration (≈ 1.41)
+
+---
+
+## 🧩 Fonctionnalités
+
+- Jeu interactif en console  
+- IA basée sur MCTS  
+- Heuristique améliorée pour les simulations :
+  - gagner immédiatement  
+  - bloquer l’adversaire  
+  - privilégier le centre  
+  - privilégier les coins  
+- Affichage du plateau  
+- Détection automatique du gagnant  
+
+---
+
+## ▶️ Exécution
+
+### 🔧 Prérequis
+- Python 3.x
+
+### 🚀 Lancer le programme
+
+```bash
+python main.py
